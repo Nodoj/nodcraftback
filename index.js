@@ -2,19 +2,20 @@ import express from 'express';
 import fs from 'fs';
 import multer from 'multer';
 import cors from 'cors';
-
+import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 
 import { registerValidation, loginValidation, postCreateValidation, projectCreateValidation } from './validations.js';
-
 import { handleValidationErrors, checkAuth } from './utils/index.js';
-
 import { UserController, PostController, ProjectController } from './controllers/index.js';
+
+
+dotenv.config();
 
 mongoose.set('strictQuery', false)
 
 mongoose
-  .connect(process.env.MONGODB_URI || 'mongodb+srv://njadmin:Wg0XeeLbQFvkvL1X@clusternjw.dbngxla.mongodb.net/maindb?retryWrites=true&w=majority')
+  .connect(process.env.MONGODB_URI)
   .then(() => console.log('DB ok'))
   .catch((err) => console.log('DB error', err));
 
