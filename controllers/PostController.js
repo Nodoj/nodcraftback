@@ -121,7 +121,7 @@ export const create = async (req, res) => {
   } catch (err) {
     console.log(err);
     res.status(500).json({
-      message: 'Не удалось создать статью',
+      message: 'Failed to create article',
     });
   }
 };
@@ -149,7 +149,7 @@ export const update = async (req, res) => {
   } catch (err) {
     console.log(err);
     res.status(500).json({
-      message: 'Не удалось обновить статью',
+      message: 'Failed to update article',
     });
   }
 };
